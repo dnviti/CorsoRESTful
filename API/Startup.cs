@@ -26,17 +26,71 @@ namespace API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                                  builder =>
+                                  {
+                                      builder.AllowAnyOrigin();
+                                      builder.AllowAnyHeader();
+                                      builder.AllowAnyMethod();
+                                  });
+            });
 
-            services.AddPooledDbContextFactory<SqlServerDbContext>(
+            services.AddOptions();
+            services.Configure<CorsoRESTSettings>(Configuration.GetSection("CorsoRESTSettings"));
+            var settings = Configuration.GetSection("CorsoRESTSettings").Get<CorsoRESTSettings>();
+            var availDb = settings.AvailableDatabases;
+
+            string connectionString = string.Empty;
+
+            // Reading connection string from appsettings
+            foreach (var item in availDb.AsDictionary())
+            {
+                var dbSettings = (BaseConnectionString)item.Value;
+                if (settings.DefaultDatabase != dbSettings.Code)
+                {
+                    continue;
+                }
+                if (string.IsNullOrEmpty(dbSettings.ConnectionString))
+                {
+                    continue;
+                }
+                connectionString = dbSettings.ConnectionString;
+                break;
+            }
+
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                throw new System.Exception($"No Connection String found, please configure one and try again");
+            }
+
+            //----- Using connection string
+            services.AddPooledDbContextFactory<CorsoRESTDbContext>(
                 opt =>
                 {
-                    opt.UseSqlServer("SqlServerConnection");
                     opt.EnableServiceProviderCaching(false);
-                },
-                poolSize: 32
+                    // Select db
+                    if (settings.DefaultDatabase == availDb.SQLServerLocal.Code || settings.DefaultDatabase == availDb.SQLSever.Code)
+                    {
+                        opt.UseSqlServer(connectionString);
+                    }
+                    if (settings.DefaultDatabase == availDb.MySQL.Code || settings.DefaultDatabase == availDb.MariaDB.Code)
+                    {
+                        opt.UseMySQL(connectionString);
+                    }
+                    if (settings.DefaultDatabase == availDb.PostgreSQL.Code)
+                    {
+                        opt.UseNpgsql(connectionString);
+                    }
+                    if (settings.DefaultDatabase == availDb.Oracle.Code)
+                    {
+                        opt.UseOracle(connectionString);
+                    }
+                }
             );
 
-            services.AddDbContext<SqlServerDbContext>(o => o.UseSqlServer("SqlServerConnection"));
+            //-----
 
             services.AddControllers().AddNewtonsoftJson(s =>
             {

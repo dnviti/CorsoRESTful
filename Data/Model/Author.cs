@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Model
 {
+    [Table("Authors")]
     public class Author
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -16,6 +17,6 @@ namespace Data.Model
         public DateTime BirthDate { get; set; }
         [Required]
         public int Role { get; set; }
-        public ICollection<Movie> Movies { get; set; }
+        public IList<Movie> Movies { get; set; }
     }
 }

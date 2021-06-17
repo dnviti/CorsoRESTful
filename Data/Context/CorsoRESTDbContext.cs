@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Data.Context
 {
-    public class LocalDbContext : DbContext
+    public class CorsoRESTDbContext : DbContext
     {
-        public LocalDbContext(DbContextOptions<LocalDbContext> opt) : base(opt)
+        public CorsoRESTDbContext(DbContextOptions<CorsoRESTDbContext> opt) : base(opt)
         {
 
         }
@@ -41,27 +41,41 @@ namespace Data.Context
                 .Entity<Movie>()
                 .HasOne(p => p.Author)
                 .WithMany(p => p.Movies)
-                .HasForeignKey(p => p.Id);
-            modelBuilder
-                .Entity<Movie>()
-                .HasMany(p => p.Actors)
-                .WithMany(p => p.Movies)
-                .UsingEntity(p => p.ToTable("ActorsMovies"));
-            modelBuilder
-                .Entity<Movie>()
-                .HasOne(p => p.Shop)
-                .WithMany(p => p.Movies)
-                .HasForeignKey(p => p.ShopId);
+                .HasForeignKey(p => p.AuthorId);
+
             modelBuilder
                 .Entity<Author>()
                 .HasMany(p => p.Movies)
                 .WithOne(p => p.Author)
                 .HasForeignKey(p => p.AuthorId);
+
             modelBuilder
-                .Entity<Shop>()
-                .HasMany(p => p.Movies)
-                .WithOne(p => p.Shop)
+                .Entity<ActorMovie>()
+                .HasKey(p => new { p.ActorId, p.MovieId });
+            modelBuilder
+                .Entity<ActorMovie>()
+                .HasOne(p => p.Actor)
+                .WithMany(p => p.ActorMovies)
+                .HasForeignKey(p => p.ActorId);
+            modelBuilder
+                .Entity<ActorMovie>()
+                .HasOne(p => p.Movie)
+                .WithMany(p => p.ActorMovies)
+                .HasForeignKey(p => p.MovieId);
+
+            modelBuilder
+                .Entity<ShopMovie>()
+                .HasKey(p => new { p.ShopId, p.MovieId });
+            modelBuilder
+                .Entity<ShopMovie>()
+                .HasOne(p => p.Shop)
+                .WithMany(p => p.ShopMovies)
                 .HasForeignKey(p => p.ShopId);
+            modelBuilder
+                .Entity<ShopMovie>()
+                .HasOne(p => p.Movie)
+                .WithMany(p => p.ShopMovies)
+                .HasForeignKey(p => p.MovieId);
             #endregion
         }
 

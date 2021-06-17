@@ -4,12 +4,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Model
 {
+    [Table("Shops")]
     public class Shop
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public ICollection<Movie> Movies { get; set; }
+        public IList<ShopMovie> ShopMovies { get; set; }
     }
 }

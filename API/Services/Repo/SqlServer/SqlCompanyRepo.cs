@@ -11,9 +11,9 @@ namespace Onyce.Services.Data.Repo.SqlServer
 {
     public class SqlMovieRepo : IMovieService
     {
-        private readonly SqlServerDbContext _context;
+        private readonly CorsoRESTDbContext _context;
 
-        public SqlMovieRepo(IDbContextFactory<SqlServerDbContext> contextFactory)
+        public SqlMovieRepo(IDbContextFactory<CorsoRESTDbContext> contextFactory)
         {
             _context = contextFactory.CreateDbContext();
         }

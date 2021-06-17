@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Model
 {
+    [Table("Movies")]
     public class Movie
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -22,7 +23,7 @@ namespace Data.Model
         public long AuthorId { get; set; }
         public Author Author { get; set; }
 
-        public ICollection<Shop> Shops { get; set; }
-        public ICollection<Actor> Actors { get; set; }
+        public IList<ShopMovie> ShopMovies { get; set; }
+        public IList<ActorMovie> ActorMovies { get; set; }
     }
 }
