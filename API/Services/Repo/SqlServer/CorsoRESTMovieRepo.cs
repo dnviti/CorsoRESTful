@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace Onyce.Services.Data.Repo.SqlServer
 {
-    public class SqlMovieRepo : IMovieService
+    public class CorsoRESTMovieRepo : IMovieService
     {
         private readonly CorsoRESTDbContext _context;
 
-        public SqlMovieRepo(IDbContextFactory<CorsoRESTDbContext> contextFactory)
+        public CorsoRESTMovieRepo(IDbContextFactory<CorsoRESTDbContext> contextFactory)
         {
             _context = contextFactory.CreateDbContext();
         }

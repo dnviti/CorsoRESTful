@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Data.Dtos.MovieDtos
 {
@@ -6,8 +7,7 @@ namespace Data.Dtos.MovieDtos
     {
         [Required]
         public string Name { get; set; }
-        [Required]
-        public string VatCode { get; set; }
-        public string Description { get; set; }
+        public decimal Rating { get; set; }
+        public DateTime? ReleaseDate { get; set; }
     }
 }

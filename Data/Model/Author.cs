@@ -9,12 +9,12 @@ namespace Data.Model
     public class Author
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
         public string Surname { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
         [Required]
         public int Role { get; set; }
         public IList<Movie> Movies { get; set; }

@@ -40,14 +40,12 @@ namespace Data.Context
             modelBuilder
                 .Entity<Movie>()
                 .HasOne(p => p.Author)
-                .WithMany(p => p.Movies)
-                .HasForeignKey(p => p.AuthorId);
+                .WithMany(p => p.Movies);
 
             modelBuilder
                 .Entity<Author>()
                 .HasMany(p => p.Movies)
-                .WithOne(p => p.Author)
-                .HasForeignKey(p => p.AuthorId);
+                .WithOne(p => p.Author);
 
             modelBuilder
                 .Entity<ActorMovie>()

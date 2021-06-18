@@ -4,9 +4,9 @@ namespace Data.Dtos.MovieDtos
 {
     public class MovieReadDto
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
-        public string VatCode { get; set; }
-        public string Description { get; set; }
+        public decimal Rating { get; set; }
+        public DateTime? ReleaseDate { get; set; }
     }
 }

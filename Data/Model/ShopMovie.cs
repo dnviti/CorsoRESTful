@@ -7,11 +7,11 @@ namespace Data.Model
     public class ShopMovie
     {
         [Required]
-        public long ShopId { get; set; }
+        public int ShopId { get; set; }
         [Required]
         public Shop Shop { get; set; }
         [Required]
-        public long MovieId { get; set; }
+        public int MovieId { get; set; }
         [Required]
         public Movie Movie { get; set; }
     }

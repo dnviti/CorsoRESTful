@@ -8,7 +8,7 @@ namespace Data.Model
     public class Shop
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         public IList<ShopMovie> ShopMovies { get; set; }

@@ -1,5 +1,7 @@
 ﻿using API.Helpers.Utilities;
+using AutoMapper;
 using Data.Context;
+using Data.Profiles;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
@@ -112,9 +114,24 @@ namespace API
             // Add framework services.
             services.AddMvc();
 
+            // Auto Mapper Configurations
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new ActorsProfile());
+                mc.AddProfile(new AuthorsProfile());
+                mc.AddProfile(new MoviesProfile());
+                mc.AddProfile(new ShopsProfile());
+            });
+
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
             // Database
             // Sql Server
-            services.AddScoped<IMovieService, SqlMovieRepo>();
+            services.AddScoped<IMovieService, CorsoRESTMovieRepo>();
+            services.AddScoped<IAuthorService, CorsoRESTAuthorRepo>();
+            services.AddScoped<IActorService, CorsoRESTActorRepo>();
+            services.AddScoped<IShopService, CorsoRESTShopRepo>();
 
             // Mongo DB
             ////

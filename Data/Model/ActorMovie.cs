@@ -7,11 +7,11 @@ namespace Data.Model
     public class ActorMovie
     {
         [Required]
-        public long ActorId { get; set; }
+        public int ActorId { get; set; }
         [Required]
         public Actor Actor { get; set; }
         [Required]
-        public long MovieId { get; set; }
+        public int MovieId { get; set; }
         [Required]
         public Movie Movie { get; set; }
     }

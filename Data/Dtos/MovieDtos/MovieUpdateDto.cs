@@ -1,13 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
 
 namespace Data.Dtos.MovieDtos
 {
     public class MovieUpdateDto
     {
-        [Required]
         public string Name { get; set; }
-        [Required]
-        public string VatCode { get; set; }
-        public string Description { get; set; }
+        public decimal Rating { get; set; }
+        public DateTime? ReleaseDate { get; set; }
     }
 }
