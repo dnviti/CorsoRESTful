@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Onyce.Services.Data.Repo.SqlServer
+namespace API.Services.Repo.CorsoRESTRepo
 {
     public class CorsoRESTShopRepo : IShopService
     {
@@ -48,7 +48,7 @@ namespace Onyce.Services.Data.Repo.SqlServer
             throw new NotImplementedException();
         }
 
-        public Shop GetShopById(long Id)
+        public Shop GetShopById(int Id)
         {
             return _context.Shops.FirstOrDefault(p => p.Id == Id);
         }

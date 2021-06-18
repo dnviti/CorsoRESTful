@@ -37,7 +37,7 @@ namespace API.Controllers
 
         //GET /api/Shops/{id}
         [HttpGet("{id}", Name = "GetShopById")]
-        public ActionResult<ShopReadDto> GetShopById(long id)
+        public ActionResult<ShopReadDto> GetShopById(int id)
         {
             var ShopItem = _repository.GetShopById(id);
             var mapped = _mapper.Map<ShopReadDto>(ShopItem);
@@ -72,7 +72,7 @@ namespace API.Controllers
         //PUT IS DEPRECATED!
         //PUT /api/Shops/{id}
         [HttpPut("{id}")]
-        public ActionResult UpdateShop(long id, ShopUpdateDto ShopUpdateDto)
+        public ActionResult UpdateShop(int id, ShopUpdateDto ShopUpdateDto)
         {
             var ShopModelFromRepo = _repository.GetShopById(id);
             if (ShopModelFromRepo == null)
@@ -92,7 +92,7 @@ namespace API.Controllers
         //USE PATCH INSTEAD OF PUT
         //PATCH /api/Shops/{id}
         [HttpPatch("{id}")]
-        public ActionResult UpdateShop(long id, JsonPatchDocument<ShopUpdateDto> jsonPatchDocument)
+        public ActionResult UpdateShop(int id, JsonPatchDocument<ShopUpdateDto> jsonPatchDocument)
         {
             var ShopModelFromRepo = _repository.GetShopById(id);
             if (ShopModelFromRepo == null)
@@ -120,7 +120,7 @@ namespace API.Controllers
 
         //DELETE /api/Shops/{id}
         [HttpDelete("{id}")]
-        public ActionResult DeleteShop(long id)
+        public ActionResult DeleteShop(int id)
         {
             var ShopModelFromRepo = _repository.GetShopById(id);
             if (ShopModelFromRepo == null)

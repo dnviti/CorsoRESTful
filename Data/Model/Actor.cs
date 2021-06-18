@@ -17,6 +17,6 @@ namespace Data.Model
         public DateTime? BirthDate { get; set; }
         [Required]
         public int Role { get; set; }
-        public IList<ActorMovie> ActorMovies { get; set; }
+        public IList<Movie> Movies { get; set; }
     }
 }

@@ -9,9 +9,10 @@ namespace Services.Interfaces
         bool SaveChanges();
         IEnumerable<Actor> GetAllActors();
         Task<IEnumerable<Actor>> GetAllActorsAsync();
-        Actor GetActorById(long Id);
+        Actor GetActorById(int Id);
         void CreateActor(Actor Actor);
         void UpdateActor(Actor Actor);
         void DeleteActor(Actor Actor);
+        void AssignActorToMovie(int Id);
     }
 }

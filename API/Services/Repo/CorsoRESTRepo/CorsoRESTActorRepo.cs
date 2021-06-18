@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Onyce.Services.Data.Repo.SqlServer
+namespace API.Services.Repo.CorsoRESTRepo
 {
     public class CorsoRESTActorRepo : IActorService
     {
@@ -48,7 +48,7 @@ namespace Onyce.Services.Data.Repo.SqlServer
             throw new NotImplementedException();
         }
 
-        public Actor GetActorById(long Id)
+        public Actor GetActorById(int Id)
         {
             return _context.Actors.FirstOrDefault(p => p.Id == Id);
         }
@@ -60,7 +60,12 @@ namespace Onyce.Services.Data.Repo.SqlServer
 
         public void UpdateActor(Actor Actor)
         {
-            //Nothing
+            _context.Actors.Update(Actor);
+        }
+
+        public void AssignActorToMovie(int Id)
+        {
+            // ToDo: To implement Many To Many Entity update
         }
     }
 }

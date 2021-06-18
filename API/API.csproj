@@ -13,7 +13,6 @@
     <PackageReference Include="Npgsql" Version="5.0.7" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="5.21.1" />
-    <PackageReference Include="Oracle.ManagedDataAccess" Version="19.11.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
   </ItemGroup>
 

@@ -48,32 +48,16 @@ namespace Data.Context
                 .WithOne(p => p.Author);
 
             modelBuilder
-                .Entity<ActorMovie>()
-                .HasKey(p => new { p.ActorId, p.MovieId });
-            modelBuilder
-                .Entity<ActorMovie>()
-                .HasOne(p => p.Actor)
-                .WithMany(p => p.ActorMovies)
-                .HasForeignKey(p => p.ActorId);
-            modelBuilder
-                .Entity<ActorMovie>()
-                .HasOne(p => p.Movie)
-                .WithMany(p => p.ActorMovies)
-                .HasForeignKey(p => p.MovieId);
+                .Entity<Movie>()
+                .HasMany(p => p.Actors)
+                .WithMany(p => p.Movies)
+                .UsingEntity(p => p.ToTable("ActorMovies"));
 
             modelBuilder
-                .Entity<ShopMovie>()
-                .HasKey(p => new { p.ShopId, p.MovieId });
-            modelBuilder
-                .Entity<ShopMovie>()
-                .HasOne(p => p.Shop)
-                .WithMany(p => p.ShopMovies)
-                .HasForeignKey(p => p.ShopId);
-            modelBuilder
-                .Entity<ShopMovie>()
-                .HasOne(p => p.Movie)
-                .WithMany(p => p.ShopMovies)
-                .HasForeignKey(p => p.MovieId);
+                .Entity<Movie>()
+                .HasMany(p => p.Shops)
+                .WithMany(p => p.Movies)
+                .UsingEntity(p => p.ToTable("ShopMovies"));
             #endregion
         }
 

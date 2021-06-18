@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Onyce.Services.Data.Repo.SqlServer
+namespace API.Services.Repo.CorsoRESTRepo
 {
     public class CorsoRESTAuthorRepo : IAuthorService
     {
@@ -48,7 +48,7 @@ namespace Onyce.Services.Data.Repo.SqlServer
             throw new NotImplementedException();
         }
 
-        public Author GetAuthorById(long Id)
+        public Author GetAuthorById(int Id)
         {
             return _context.Authors.FirstOrDefault(p => p.Id == Id);
         }

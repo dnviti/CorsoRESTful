@@ -1,6 +1,4 @@
-﻿using Data.Model;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace Data.Dtos.ActorDtos
 {
@@ -10,6 +8,5 @@ namespace Data.Dtos.ActorDtos
         public string Surname { get; set; }
         public DateTime BirthDate { get; set; }
         public int Role { get; set; }
-        public ICollection<Movie> Movies { get; set; }
     }
 }

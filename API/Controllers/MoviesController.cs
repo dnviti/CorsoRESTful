@@ -32,12 +32,13 @@ namespace API.Controllers
         {
             var MovieItems = _repository.GetAllMovies();
             var mapped = _mapper.Map<IEnumerable<MovieReadDto>>(MovieItems);
+
             return Ok(mapped);
         }
 
         //GET /api/Movies/{id}
         [HttpGet("{id}", Name = "GetMovieById")]
-        public ActionResult<MovieReadDto> GetMovieById(long id)
+        public ActionResult<MovieReadDto> GetMovieById(int id)
         {
             var MovieItem = _repository.GetMovieById(id);
             var mapped = _mapper.Map<MovieReadDto>(MovieItem);
@@ -46,6 +47,16 @@ namespace API.Controllers
                 return Ok(mapped);
             }
             return NotFound();
+        }
+
+        //GET /api/Movies/{actorId}
+        [HttpGet("{actorId}", Name = "GetAllMoviesByActorId")]
+        public ActionResult<IEnumerable<MovieReadDto>> GetAllMoviesByActorId(int actorId)
+        {
+            var MovieItems = _repository.GetAllMoviesByActorId(actorId);
+            var mapped = _mapper.Map<IEnumerable<MovieReadDto>>(MovieItems);
+
+            return Ok(mapped);
         }
 
         //POST /api/Movies
@@ -72,7 +83,7 @@ namespace API.Controllers
         //PUT IS DEPRECATED!
         //PUT /api/Movies/{id}
         [HttpPut("{id}")]
-        public ActionResult UpdateMovie(long id, MovieUpdateDto MovieUpdateDto)
+        public ActionResult UpdateMovie(int id, MovieUpdateDto MovieUpdateDto)
         {
             var MovieModelFromRepo = _repository.GetMovieById(id);
             if (MovieModelFromRepo == null)
@@ -92,7 +103,7 @@ namespace API.Controllers
         //USE PATCH INSTEAD OF PUT
         //PATCH /api/Movies/{id}
         [HttpPatch("{id}")]
-        public ActionResult UpdateMovie(long id, JsonPatchDocument<MovieUpdateDto> jsonPatchDocument)
+        public ActionResult UpdateMovie(int id, JsonPatchDocument<MovieUpdateDto> jsonPatchDocument)
         {
             var MovieModelFromRepo = _repository.GetMovieById(id);
             if (MovieModelFromRepo == null)
@@ -120,7 +131,7 @@ namespace API.Controllers
 
         //DELETE /api/Movies/{id}
         [HttpDelete("{id}")]
-        public ActionResult DeleteMovie(long id)
+        public ActionResult DeleteMovie(int id)
         {
             var MovieModelFromRepo = _repository.GetMovieById(id);
             if (MovieModelFromRepo == null)

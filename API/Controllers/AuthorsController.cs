@@ -37,7 +37,7 @@ namespace API.Controllers
 
         //GET /api/Authors/{id}
         [HttpGet("{id}", Name = "GetAuthorById")]
-        public ActionResult<AuthorReadDto> GetAuthorById(long id)
+        public ActionResult<AuthorReadDto> GetAuthorById(int id)
         {
             var AuthorItem = _repository.GetAuthorById(id);
             var mapped = _mapper.Map<AuthorReadDto>(AuthorItem);
@@ -72,7 +72,7 @@ namespace API.Controllers
         //PUT IS DEPRECATED!
         //PUT /api/Authors/{id}
         [HttpPut("{id}")]
-        public ActionResult UpdateAuthor(long id, AuthorUpdateDto AuthorUpdateDto)
+        public ActionResult UpdateAuthor(int id, AuthorUpdateDto AuthorUpdateDto)
         {
             var AuthorModelFromRepo = _repository.GetAuthorById(id);
             if (AuthorModelFromRepo == null)
@@ -92,7 +92,7 @@ namespace API.Controllers
         //USE PATCH INSTEAD OF PUT
         //PATCH /api/Authors/{id}
         [HttpPatch("{id}")]
-        public ActionResult UpdateAuthor(long id, JsonPatchDocument<AuthorUpdateDto> jsonPatchDocument)
+        public ActionResult UpdateAuthor(int id, JsonPatchDocument<AuthorUpdateDto> jsonPatchDocument)
         {
             var AuthorModelFromRepo = _repository.GetAuthorById(id);
             if (AuthorModelFromRepo == null)
@@ -120,7 +120,7 @@ namespace API.Controllers
 
         //DELETE /api/Authors/{id}
         [HttpDelete("{id}")]
-        public ActionResult DeleteAuthor(long id)
+        public ActionResult DeleteAuthor(int id)
         {
             var AuthorModelFromRepo = _repository.GetAuthorById(id);
             if (AuthorModelFromRepo == null)

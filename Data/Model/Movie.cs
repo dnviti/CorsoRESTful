@@ -22,7 +22,7 @@ namespace Data.Model
         public int AuthorId { get; set; }
         public Author Author { get; set; }
 
-        public IList<ShopMovie> ShopMovies { get; set; }
-        public IList<ActorMovie> ActorMovies { get; set; }
+        public IList<Shop> Shops { get; set; }
+        public IList<Actor> Actors { get; set; }
     }
 }

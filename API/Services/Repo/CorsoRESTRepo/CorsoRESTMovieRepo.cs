@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Onyce.Services.Data.Repo.SqlServer
+namespace API.Services.Repo.CorsoRESTRepo
 {
     public class CorsoRESTMovieRepo : IMovieService
     {
@@ -48,9 +48,20 @@ namespace Onyce.Services.Data.Repo.SqlServer
             throw new NotImplementedException();
         }
 
-        public Movie GetMovieById(long Id)
+        public Movie GetMovieById(int Id)
         {
             return _context.Movies.FirstOrDefault(p => p.Id == Id);
+        }
+
+        public IEnumerable<Movie> GetAllMoviesByActorId(int ActorId)
+        {
+            var movies =
+                from m in _context.Movies
+                from a in _context.Actors
+                where a.Id == ActorId
+                select m;
+
+            return movies.ToList();
         }
 
         public bool SaveChanges()

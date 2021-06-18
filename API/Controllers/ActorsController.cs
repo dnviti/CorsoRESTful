@@ -37,7 +37,7 @@ namespace API.Controllers
 
         //GET /api/Actors/{id}
         [HttpGet("{id}", Name = "GetActorById")]
-        public ActionResult<ActorReadDto> GetActorById(long id)
+        public ActionResult<ActorReadDto> GetActorById(int id)
         {
             var ActorItem = _repository.GetActorById(id);
             var mapped = _mapper.Map<ActorReadDto>(ActorItem);
@@ -72,7 +72,7 @@ namespace API.Controllers
         //PUT IS DEPRECATED!
         //PUT /api/Actors/{id}
         [HttpPut("{id}")]
-        public ActionResult UpdateActor(long id, ActorUpdateDto ActorUpdateDto)
+        public ActionResult UpdateActor(int id, ActorUpdateDto ActorUpdateDto)
         {
             var ActorModelFromRepo = _repository.GetActorById(id);
             if (ActorModelFromRepo == null)
@@ -92,7 +92,7 @@ namespace API.Controllers
         //USE PATCH INSTEAD OF PUT
         //PATCH /api/Actors/{id}
         [HttpPatch("{id}")]
-        public ActionResult UpdateActor(long id, JsonPatchDocument<ActorUpdateDto> jsonPatchDocument)
+        public ActionResult UpdateActor(int id, JsonPatchDocument<ActorUpdateDto> jsonPatchDocument)
         {
             var ActorModelFromRepo = _repository.GetActorById(id);
             if (ActorModelFromRepo == null)
@@ -120,7 +120,7 @@ namespace API.Controllers
 
         //DELETE /api/Actors/{id}
         [HttpDelete("{id}")]
-        public ActionResult DeleteActor(long id)
+        public ActionResult DeleteActor(int id)
         {
             var ActorModelFromRepo = _repository.GetActorById(id);
             if (ActorModelFromRepo == null)
