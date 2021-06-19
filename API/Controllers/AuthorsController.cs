@@ -1,12 +1,4 @@
-﻿using AutoMapper;
-using Data.Dtos.AuthorDtos;
-using Data.Model;
-using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.Mvc;
-using Services.Interfaces;
-using System.Collections.Generic;
-
-namespace API.Controllers
+﻿namespace API.Controllers
 {
     // /api/Authors
     //[Route("api/[controller]")]

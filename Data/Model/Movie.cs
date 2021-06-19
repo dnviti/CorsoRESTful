@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Data.Model
+﻿namespace Data.Model
 {
     [Table("Movies")]
     public class Movie

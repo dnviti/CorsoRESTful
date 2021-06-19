@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Data.Dtos.MovieDtos
+﻿namespace Data.Dtos.MovieDtos
 {
     public class MovieUpdateDto
     {

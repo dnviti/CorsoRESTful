@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using Data.Dtos.ShopDtos;
-using Data.Model;
-
-namespace Data.Profiles
+﻿namespace Data.Profiles
 {
     public class ShopsProfile : Profile
     {

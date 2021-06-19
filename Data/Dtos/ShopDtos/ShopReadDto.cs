@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Data.Dtos.ShopDtos
+﻿namespace Data.Dtos.ShopDtos
 {
     public class ShopCreateDto
     {

@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace Data.Dtos.MovieDtos
+﻿namespace Data.Dtos.MovieDtos
 {
     public class MovieCreateDto
     {

@@ -1,11 +1,4 @@
-﻿using Data.Model;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Data.Context
+﻿namespace Data.Context
 {
     public class CorsoRESTDbContext : DbContext
     {

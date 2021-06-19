@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Data.Dtos.AuthorDtos
+﻿namespace Data.Dtos.AuthorDtos
 {
     public class AuthorCreateDto
     {

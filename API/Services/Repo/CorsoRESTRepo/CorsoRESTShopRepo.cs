@@ -1,13 +1,4 @@
-﻿using Data.Context;
-using Data.Model;
-using Microsoft.EntityFrameworkCore;
-using Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace API.Services.Repo.CorsoRESTRepo
+﻿namespace API.Services.Repo.CorsoRESTRepo
 {
     public class CorsoRESTShopRepo : IShopService
     {

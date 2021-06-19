@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Data.Model
+﻿namespace Data.Model
 {
     [Table("ShopsMovies")]
     public class ShopMovie

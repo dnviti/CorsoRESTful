@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-
-namespace API.Helpers.Utilities
+﻿namespace API.Helpers.Utilities
 {
     public static class ObjectExtensions
     {

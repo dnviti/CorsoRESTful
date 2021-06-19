@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Data.Dtos.ActorDtos
+﻿namespace Data.Dtos.ActorDtos
 {
     public class ActorReadDto
     {

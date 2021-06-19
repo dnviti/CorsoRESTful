@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace Data.Dtos.AuthorDtos
+﻿namespace Data.Dtos.AuthorDtos
 {
     public class AuthorReadDto
     {

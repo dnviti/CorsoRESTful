@@ -1,20 +1,4 @@
-﻿using API.Helpers.Utilities;
-using API.Services.Repo.CorsoRESTRepo;
-using AutoMapper;
-using Data.Context;
-using Data.Profiles;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
-using Newtonsoft.Json.Serialization;
-using Services.Interfaces;
-
-namespace API
+﻿namespace API
 {
     public class Startup
     {

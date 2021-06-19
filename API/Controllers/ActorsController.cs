@@ -1,13 +1,4 @@
-﻿using AutoMapper;
-using Data.Dtos.ActorDtos;
-using Data.Dtos.ActorMovieDtos;
-using Data.Model;
-using Microsoft.AspNetCore.JsonPatch;
-using Microsoft.AspNetCore.Mvc;
-using Services.Interfaces;
-using System.Collections.Generic;
-
-namespace API.Controllers
+﻿namespace API.Controllers
 {
     // /api/Actors
     //[Route("api/[controller]")]

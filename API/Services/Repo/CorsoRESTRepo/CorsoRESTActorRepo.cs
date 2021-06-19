@@ -1,13 +1,4 @@
-﻿using Data.Context;
-using Data.Model;
-using Microsoft.EntityFrameworkCore;
-using Services.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace API.Services.Repo.CorsoRESTRepo
+﻿namespace API.Services.Repo.CorsoRESTRepo
 {
     public class CorsoRESTActorRepo : IActorService
     {
@@ -65,7 +56,7 @@ namespace API.Services.Repo.CorsoRESTRepo
 
         public void CreateActorMovie(ActorMovie ActorMovie)
         {
-            ActorMovie.Actor = _context.Actors.FirstOrDefault(p=> p.Id == ActorMovie.ActorId);
+            ActorMovie.Actor = _context.Actors.FirstOrDefault(p => p.Id == ActorMovie.ActorId);
             ActorMovie.Movie = _context.Movies.FirstOrDefault(p => p.Id == ActorMovie.MovieId);
             _context.ActorMovies.Add(ActorMovie);
         }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace Data.Dtos.ActorDtos
+﻿namespace Data.Dtos.ActorDtos
 {
     public class ActorCreateDto
     {

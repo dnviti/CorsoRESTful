@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace Data.Dtos.ShopDtos
+﻿namespace Data.Dtos.ShopDtos
 {
     public class ShopUpdateDto
     {
