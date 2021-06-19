@@ -18,6 +18,8 @@ namespace Data.Context
         public DbSet<Author> Authors { get; set; }
         public DbSet<Actor> Actors { get; set; }
         public DbSet<Shop> Shops { get; set; }
+        public DbSet<ActorMovie> ActorMovies { get; set; }
+        public DbSet<ShopMovie> ShopMovies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,6 +37,12 @@ namespace Data.Context
             modelBuilder
                 .Entity<Shop>()
                 .HasKey(p => p.Id);
+            modelBuilder
+                .Entity<ActorMovie>()
+                .HasKey(p => new { p.ActorId, p.MovieId });
+            modelBuilder
+                .Entity<ShopMovie>()
+                .HasKey(p => new { p.ShopId, p.MovieId });
 
             // Relation Definition
             modelBuilder

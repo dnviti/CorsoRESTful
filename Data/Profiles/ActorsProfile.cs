@@ -9,10 +9,9 @@ namespace Data.Profiles
         public ActorsProfile()
         {
             // Source -> Target
-            CreateMap<Actor, ActorReadDto>();
-            CreateMap<ActorCreateDto, Actor>();
-            CreateMap<ActorUpdateDto, Actor>();
-            CreateMap<Actor, ActorUpdateDto>();
+            CreateMap<Actor, ActorReadDto>().ReverseMap();
+            CreateMap<Actor, ActorCreateDto>().ReverseMap();
+            CreateMap<Actor, ActorUpdateDto>().ReverseMap();
         }
 
     }

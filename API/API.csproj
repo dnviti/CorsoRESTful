@@ -1,8 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>9aae755e-907f-4c64-b47a-5d74e7ca4dd0</UserSecretsId>
+    <StartupObject>API.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>

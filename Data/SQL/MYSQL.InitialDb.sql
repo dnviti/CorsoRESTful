@@ -9,7 +9,7 @@ CREATE TABLE Movies
 (
 	Id INT PRIMARY KEY AUTO_INCREMENT,
 	Name VARCHAR(255) NOT NULL,
-	Rating DECIMAL NOT NULL,
+	Rating double NOT NULL,
 	AuthorId INT NULL,
 	ReleaseDate DATETIME NULL,
 	CreatedOn DATETIME NULL,
@@ -29,6 +29,7 @@ CREATE TABLE ActorsMovies
 (
 	ActorId INT NOT NULL,
 	MovieId INT NOT NULL,
+	CONSTRAINT ActorsMovies_UN UNIQUE (ActorId,MovieId),
 	CONSTRAINT FK1_ActorsMovies FOREIGN KEY (ActorId)
 	REFERENCES Movies(Id)
     ON DELETE NO ACTION
@@ -38,6 +39,8 @@ CREATE TABLE ActorsMovies
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 );
+
+ALTER TABLE ActorsMovies ADD CONSTRAINT ActorsMovies_UN UNIQUE (ActorId,MovieId);
 
 CREATE TABLE Authors
 (
@@ -72,3 +75,5 @@ CREATE TABLE ShopsMovies
     ON DELETE NO ACTION
     ON UPDATE NO ACTION
 );
+
+ALTER TABLE ShopsMovies ADD CONSTRAINT ShopsMovies_UN UNIQUE (ShopId,MovieId);

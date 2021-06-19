@@ -9,10 +9,9 @@ namespace Data.Profiles
         public AuthorsProfile()
         {
             // Source -> Target
-            CreateMap<Author, AuthorReadDto>();
-            CreateMap<AuthorCreateDto, Author>();
-            CreateMap<AuthorUpdateDto, Author>();
-            CreateMap<Author, AuthorUpdateDto>();
+            CreateMap<Author, AuthorReadDto>().ReverseMap();
+            CreateMap<Author, AuthorCreateDto>().ReverseMap();
+            CreateMap<Author, AuthorUpdateDto>().ReverseMap();
         }
 
     }

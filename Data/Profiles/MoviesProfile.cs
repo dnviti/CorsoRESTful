@@ -9,10 +9,9 @@ namespace Data.Profiles
         public MoviesProfile()
         {
             // Source -> Target
-            CreateMap<Movie, MovieReadDto>();
-            CreateMap<MovieCreateDto, Movie>();
-            CreateMap<MovieUpdateDto, Movie>();
-            CreateMap<Movie, MovieUpdateDto>();
+            CreateMap<Movie, MovieReadDto>().ReverseMap();
+            CreateMap<Movie, MovieCreateDto>().ReverseMap();
+            CreateMap<Movie, MovieUpdateDto>().ReverseMap();
         }
 
     }

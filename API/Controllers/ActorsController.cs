@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Data.Dtos.ActorDtos;
+using Data.Dtos.ActorMovieDtos;
 using Data.Model;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -67,6 +68,28 @@ namespace API.Controllers
             // returns 201 created and the complete uri of the created resource
             // https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdatroute?view=aspnetcore-5.0
             return CreatedAtRoute(nameof(GetActorById), new { ActorReadDto.Id }, ActorReadDto);
+        }
+
+        //POST /api/ActorMovie
+        [Route("AssignMovie")]
+        [HttpPost]
+        public ActionResult<ActorMovieReadDto> CreateActorMovie(ActorMovieCreateDto ActorMovieCreateDto)
+        {
+            if (ActorMovieCreateDto == null)
+            {
+                return NotFound();
+            }
+
+            var ActorMovieModel = _mapper.Map<ActorMovie>(ActorMovieCreateDto);
+
+            _repository.CreateActorMovie(ActorMovieModel);
+            _repository.SaveChanges();
+
+            var ActorMovieReadDto = _mapper.Map<ActorMovieReadDto>(ActorMovieModel);
+
+            // returns 201 created and the complete uri of the created resource
+            // https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.mvc.controllerbase.createdatroute?view=aspnetcore-5.0
+            return Created(nameof(ActorMovieCreateDto), ActorMovieReadDto);
         }
 
         //PUT IS DEPRECATED!

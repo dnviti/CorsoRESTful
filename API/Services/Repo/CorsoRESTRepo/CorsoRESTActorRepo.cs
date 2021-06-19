@@ -63,9 +63,11 @@ namespace API.Services.Repo.CorsoRESTRepo
             _context.Actors.Update(Actor);
         }
 
-        public void AssignActorToMovie(int Id)
+        public void CreateActorMovie(ActorMovie ActorMovie)
         {
-            // ToDo: To implement Many To Many Entity update
+            ActorMovie.Actor = _context.Actors.FirstOrDefault(p=> p.Id == ActorMovie.ActorId);
+            ActorMovie.Movie = _context.Movies.FirstOrDefault(p => p.Id == ActorMovie.MovieId);
+            _context.ActorMovies.Add(ActorMovie);
         }
     }
 }

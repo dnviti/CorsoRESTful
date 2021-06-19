@@ -13,6 +13,6 @@ namespace Services.Interfaces
         void CreateActor(Actor Actor);
         void UpdateActor(Actor Actor);
         void DeleteActor(Actor Actor);
-        void AssignActorToMovie(int Id);
+        void CreateActorMovie(ActorMovie ActorMovie);
     }
 }

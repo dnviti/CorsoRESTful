@@ -13,13 +13,12 @@ namespace Data.Model
         [Required]
         public string Name { get; set; }
         [Required]
-        public decimal Rating { get; set; }
-        [Required]
+        public double? Rating { get; set; }
         public DateTime? ReleaseDate { get; set; }
         public DateTime? CreatedOn { get; set; }
         public DateTime? ModifiedOn { get; set; }
 
-        public int AuthorId { get; set; }
+        public int? AuthorId { get; set; }
         public Author Author { get; set; }
 
         public IList<Shop> Shops { get; set; }

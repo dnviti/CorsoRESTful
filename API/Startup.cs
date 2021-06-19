@@ -121,6 +121,7 @@ namespace API
                 mc.AddProfile(new AuthorsProfile());
                 mc.AddProfile(new MoviesProfile());
                 mc.AddProfile(new ShopsProfile());
+                mc.AddProfile(new ActorMovieProfile());
             });
 
             IMapper mapper = mappingConfig.CreateMapper();

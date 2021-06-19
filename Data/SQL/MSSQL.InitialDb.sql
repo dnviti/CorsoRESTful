@@ -9,7 +9,7 @@ CREATE TABLE Movies
 (
 	Id INT IDENTITY(1,1) PRIMARY KEY,
 	Name VARCHAR(255) NOT NULL,
-	Rating DECIMAL NOT NULL,
+	Rating double NOT NULL,
 	AuthorId INT NULL,
 	ReleaseDate DATETIME2 NULL,
 	CreatedOn DATETIME2 NULL,
@@ -29,6 +29,7 @@ CREATE TABLE ActorsMovies
 (
 	ActorId INT NOT NULL,
 	MovieId INT NOT NULL,
+	CONSTRAINT ActorsMovies_UN UNIQUE (ActorId,MovieId),
 	CONSTRAINT FK1_ActorsMovies FOREIGN KEY (ActorId)
 	REFERENCES Movies(Id)
     ON DELETE NO ACTION
@@ -63,6 +64,7 @@ CREATE TABLE ShopsMovies
 (
 	ShopId INT NOT NULL,
 	MovieId INT NOT NULL,
+	CONSTRAINT ShopsMovies_UN UNIQUE (ShopId,MovieId),
 	CONSTRAINT FK1_ShopsMovies FOREIGN KEY (ShopId)
 	REFERENCES Shops(Id)
     ON DELETE NO ACTION
