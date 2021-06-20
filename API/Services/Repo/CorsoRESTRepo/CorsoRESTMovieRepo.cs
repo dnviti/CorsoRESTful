@@ -48,7 +48,7 @@
         {
             var movies =
                 from m in _context.Movies
-                from a in _context.Actors
+                join a in _context.Actors on m.Id equals a.Id
                 where a.Id == ActorId
                 select m;
 

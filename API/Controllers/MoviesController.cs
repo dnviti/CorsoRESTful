@@ -6,34 +6,67 @@
     [ApiController]
     public class MoviesController : ControllerBase
     {
-        private IMovieService _repository;
+        private readonly IMovieService _repository;
         private readonly IMapper _mapper;
+
+        public UrlHelper UrlHelper { get; }
 
         public MoviesController(
             IMovieService repository,
-            IMapper mapper
+            IMapper mapper,
+            UrlHelper urlHelper
         )
         {
             _repository = repository;
             _mapper = mapper;
+            UrlHelper = urlHelper;
         }
 
         //GET /api/Movies
         [HttpGet]
-        public ActionResult<IEnumerable<MovieReadDto>> GetAllMovies()
+        public ActionResult<IEnumerable<MovieReadDto>> GetAllMovies([FromHeader(Name = "Accept")] string accept)
         {
             var MovieItems = _repository.GetAllMovies();
             var mapped = _mapper.Map<IEnumerable<MovieReadDto>>(MovieItems);
 
+            // Add links if requested by client
+            if (accept.EndsWith("hateoas"))
+            {
+                foreach (MovieReadDto movieReadDto in mapped)
+                {
+                    var link = new LinkHelper<MovieReadDto>(movieReadDto);
+                    link.Links.Add(new Link
+                    {
+                        Href = $"{UrlHelper.BaseUrlGenerator(HttpContext)}/api/Movies/{movieReadDto.Id}",
+                        Rel = "self",
+                        method = "GET"
+                    });
+                    link.Links.Add(new Link
+                    {
+                        Href = $"{UrlHelper.BaseUrlGenerator(HttpContext)}/api/Movies/{movieReadDto.Id}",
+                        Rel = "update-movie",
+                        method = "PUT"
+                    });
+                    link.Links.Add(new Link
+                    {
+                        Href = $"{UrlHelper.BaseUrlGenerator(HttpContext)}/api/Movies/{movieReadDto.Id}",
+                        Rel = "delete-movie",
+                        method = "DELETE"
+                    });
+                    movieReadDto.Links = link.Links;
+                }
+            }
+
             return Ok(mapped);
         }
 
-        //GET /api/Movies/{id}
+        //GET /api/Movies/GetMovieById/{id}
         [HttpGet("{id}", Name = "GetMovieById")]
         public ActionResult<MovieReadDto> GetMovieById(int id)
         {
             var MovieItem = _repository.GetMovieById(id);
             var mapped = _mapper.Map<MovieReadDto>(MovieItem);
+
             if (MovieItem != null)
             {
                 return Ok(mapped);
@@ -41,8 +74,9 @@
             return NotFound();
         }
 
-        //GET /api/Movies/{actorId}
-        [HttpGet("{actorId}", Name = "GetAllMoviesByActorId")]
+        //GET /api/Movies/ByActor?actorId={id}
+        [Route("ByActor")]
+        [HttpGet]
         public ActionResult<IEnumerable<MovieReadDto>> GetAllMoviesByActorId(int actorId)
         {
             var MovieItems = _repository.GetAllMoviesByActorId(actorId);
