@@ -41,6 +41,14 @@
 
         public Movie GetMovieById(int Id)
         {
+            /*
+             * LINQ => Query Syntax
+             * Stesso risultato dell'espressione sotto, diversa sintassi
+            var movie = (from m in _context.Movies
+                        where m.Id == Id
+                        select m).FirstOrDefault();
+            */
+            // LINQ => Lambda Expression
             return _context.Movies.FirstOrDefault(p => p.Id == Id);
         }
 
