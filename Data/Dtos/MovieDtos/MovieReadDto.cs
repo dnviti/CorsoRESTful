@@ -1,6 +1,6 @@
 ﻿namespace Data.Dtos.MovieDtos
 {
-    public class MovieReadDto
+    public record MovieReadDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

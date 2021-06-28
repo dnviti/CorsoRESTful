@@ -1,7 +1,7 @@
 ﻿namespace Data.Model
 {
     [Table("Shops")]
-    public class Shop
+    public record Shop
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

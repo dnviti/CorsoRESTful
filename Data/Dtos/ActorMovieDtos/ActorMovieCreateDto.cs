@@ -1,6 +1,6 @@
 ﻿namespace Data.Dtos.ActorMovieDtos
 {
-    public class ActorMovieCreateDto
+    public record ActorMovieCreateDto
     {
         [Required]
         public int ActorId { get; set; }

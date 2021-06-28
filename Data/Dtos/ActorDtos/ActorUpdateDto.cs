@@ -1,6 +1,6 @@
 ﻿namespace Data.Dtos.ActorDtos
 {
-    public class ActorUpdateDto
+    public record ActorUpdateDto
     {
         [Required]
         public string Name { get; set; }

@@ -1,7 +1,7 @@
 ﻿namespace Data.Model
 {
     [Table("ActorsMovies")]
-    public class ActorMovie
+    public record ActorMovie
     {
         [Required]
         public int ActorId { get; set; }

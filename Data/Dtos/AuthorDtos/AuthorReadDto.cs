@@ -1,6 +1,6 @@
 ﻿namespace Data.Dtos.AuthorDtos
 {
-    public class AuthorCreateDto
+    public record AuthorCreateDto
     {
         public string Name { get; set; }
         public string Surname { get; set; }

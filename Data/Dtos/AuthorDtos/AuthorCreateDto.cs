@@ -1,6 +1,6 @@
 ﻿namespace Data.Dtos.AuthorDtos
 {
-    public class AuthorReadDto
+    public record AuthorReadDto
     {
         public int Id { get; set; }
         [Required]

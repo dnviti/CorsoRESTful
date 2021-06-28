@@ -1,6 +1,6 @@
 ﻿namespace Data.Dtos.ShopDtos
 {
-    public class ShopUpdateDto
+    public record ShopUpdateDto
     {
         [Required]
         public string Name { get; set; }

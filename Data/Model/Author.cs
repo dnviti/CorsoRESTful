@@ -1,7 +1,7 @@
 ﻿namespace Data.Model
 {
     [Table("Authors")]
-    public class Author
+    public record Author
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }

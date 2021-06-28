@@ -1,6 +1,6 @@
 ﻿namespace Data.Dtos.ActorDtos
 {
-    public class ActorReadDto
+    public record ActorReadDto
     {
         public long Id { get; set; }
         public string Name { get; set; }

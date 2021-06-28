@@ -1,6 +1,6 @@
 ﻿namespace Data.Dtos.MovieDtos
 {
-    public class MovieUpdateDto
+    public record MovieUpdateDto
     {
         public string Name { get; set; }
         public double Rating { get; set; }

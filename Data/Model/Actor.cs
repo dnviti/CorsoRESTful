@@ -1,8 +1,9 @@
 ﻿namespace Data.Model
 {
     [Table("Actors")]
-    public class Actor
+    public record Actor
     {
+
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         [Required]
