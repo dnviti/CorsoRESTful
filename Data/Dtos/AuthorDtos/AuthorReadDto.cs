@@ -1,4 +1,6 @@
-﻿namespace Data.Dtos.AuthorDtos
+﻿using System;
+
+namespace Data.Dtos.AuthorDtos
 {
     public record AuthorCreateDto
     {

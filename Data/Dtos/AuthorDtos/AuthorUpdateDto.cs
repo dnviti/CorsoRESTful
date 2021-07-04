@@ -1,4 +1,7 @@
-﻿namespace Data.Dtos.AuthorDtos
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace Data.Dtos.AuthorDtos
 {
     public record AuthorUpdateDto
     {

@@ -1,4 +1,6 @@
-﻿namespace Data.Dtos.ActorDtos
+﻿using System;
+
+namespace Data.Dtos.ActorDtos
 {
     public record ActorReadDto
     {

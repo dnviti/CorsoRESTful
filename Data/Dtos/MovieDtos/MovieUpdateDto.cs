@@ -1,4 +1,6 @@
-﻿namespace Data.Dtos.MovieDtos
+﻿using System;
+
+namespace Data.Dtos.MovieDtos
 {
     public record MovieUpdateDto
     {

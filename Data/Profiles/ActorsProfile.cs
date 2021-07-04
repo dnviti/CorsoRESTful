@@ -1,4 +1,9 @@
-﻿namespace Data.Profiles
+﻿
+using AutoMapper;
+using Data.Dtos.ActorDtos;
+using Data.Dtos.ActorMovieDtos;
+using Data.Model;
+namespace Data.Profiles
 {
     public class ActorsProfile : Profile
     {

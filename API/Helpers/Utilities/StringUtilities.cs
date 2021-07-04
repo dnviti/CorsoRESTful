@@ -1,4 +1,7 @@
-﻿namespace API.Helpers.Utilities
+﻿using System;
+using System.Linq;
+
+namespace API.Helpers.Utilities
 {
     public class StringUtilities
     {

@@ -1,4 +1,8 @@
-﻿namespace Services.Interfaces
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using Data.Model;
+
+namespace Services.Interfaces
 {
     public interface IActorService
     {

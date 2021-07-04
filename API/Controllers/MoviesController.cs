@@ -1,4 +1,12 @@
-﻿namespace API.Controllers
+﻿using System.Collections.Generic;
+using API.Helpers.Utilities;
+using AutoMapper;
+using Data.Dtos.MovieDtos;
+using Data.Model;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+using Services.Interfaces;
+namespace API.Controllers
 {
     // /api/Movies
     //[Route("api/[controller]")]

@@ -1,4 +1,6 @@
-﻿namespace Data.Dtos.ShopDtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Data.Dtos.ShopDtos
 {
     public record ShopReadDto
     {

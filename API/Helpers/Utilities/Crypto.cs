@@ -1,4 +1,9 @@
-﻿namespace API.Helpers.Utilities
+﻿using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
+
+namespace API.Helpers.Utilities
 {
     public class Crypto
     {

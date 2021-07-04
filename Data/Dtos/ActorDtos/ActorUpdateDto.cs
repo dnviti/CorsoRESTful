@@ -1,4 +1,7 @@
-﻿namespace Data.Dtos.ActorDtos
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+
+namespace Data.Dtos.ActorDtos
 {
     public record ActorUpdateDto
     {

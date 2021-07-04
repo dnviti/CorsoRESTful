@@ -1,4 +1,6 @@
-﻿namespace API.Helpers.Utilities
+﻿using Microsoft.AspNetCore.Http;
+
+namespace API.Helpers.Utilities
 {
     public class UrlHelper
     {

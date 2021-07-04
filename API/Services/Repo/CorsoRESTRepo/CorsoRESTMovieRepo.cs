@@ -1,4 +1,12 @@
-﻿namespace API.Services.Repo.CorsoRESTRepo
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Data.Context;
+using Data.Model;
+using Microsoft.EntityFrameworkCore;
+using Services.Interfaces;
+namespace API.Services.Repo.CorsoRESTRepo
 {
     public class CorsoRESTMovieRepo : IMovieService
     {

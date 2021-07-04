@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace API.Helpers.Utilities
 {
     public class Link

@@ -1,4 +1,6 @@
-﻿namespace Data.Dtos.ActorMovieDtos
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Data.Dtos.ActorMovieDtos
 {
     public record ActorMovieCreateDto
     {

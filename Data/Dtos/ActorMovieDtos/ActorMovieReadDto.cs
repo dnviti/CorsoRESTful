@@ -1,4 +1,7 @@
-﻿namespace Data.Dtos.ActorMovieDtos
+﻿
+using Data.Model;
+
+namespace Data.Dtos.ActorMovieDtos
 {
     public record ActorMovieReadDto
     {

@@ -1,4 +1,7 @@
-﻿namespace Services.Interfaces
+﻿using Data.Model;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+namespace Services.Interfaces
 {
     public interface IMovieService
     {

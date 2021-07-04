@@ -1,4 +1,14 @@
-﻿namespace API.Controllers
+﻿using AutoMapper;
+using Data.Dtos.ShopDtos;
+using Data.Model;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
+using Services.Interfaces;
+using System.Collections.Generic;
+
+namespace API.Controllers
 {
     // /api/Shops
     //[Route("api/[controller]")]

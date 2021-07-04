@@ -1,4 +1,7 @@
-﻿namespace Data.Dtos.MovieDtos
+﻿using System;
+using System.Collections.Generic;
+
+namespace Data.Dtos.MovieDtos
 {
     public record MovieReadDto
     {
