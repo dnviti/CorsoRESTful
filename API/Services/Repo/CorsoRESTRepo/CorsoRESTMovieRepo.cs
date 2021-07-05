@@ -50,7 +50,7 @@ namespace API.Services.Repo.CorsoRESTRepo
         public Movie GetMovieById(int Id)
         {
             /*
-             * LINQ => Query Syntax
+             * LINQ => Query Expression
              * Stesso risultato dell'espressione sotto, diversa sintassi
             var movie = (from m in _context.Movies
                         where m.Id == Id
