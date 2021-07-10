@@ -59,13 +59,13 @@ namespace Data.Context
                 .Entity<Movie>()
                 .HasMany(p => p.Actors)
                 .WithMany(p => p.Movies)
-                .UsingEntity(p => p.ToTable("ActorMovies"));
+                .UsingEntity(p => p.ToTable("ActorMovie"));
 
             modelBuilder
                 .Entity<Movie>()
                 .HasMany(p => p.Shops)
                 .WithMany(p => p.Movies)
-                .UsingEntity(p => p.ToTable("ShopMovies"));
+                .UsingEntity(p => p.ToTable("ShopMovie"));
             #endregion
         }
 
